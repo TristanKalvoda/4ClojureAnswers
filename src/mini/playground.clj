@@ -7,10 +7,12 @@
 (= (Answer16 "Rhea") "Hello, Rhea!")
 
 ;Problem 19: Last Element
+;Rewritten as a loop recur, because of tail recursion optimization.
 (defn Answer19[x]
-  (if (empty? (rest x))
-    (first x)
-    (recur (rest x))))
+  (loop [lst x]
+    (if (empty? (rest lst)) 
+      (first lst)
+    (recur (rest lst)))))
 (= (Answer19 [1 2 3 4 5]) 5)
 (= (Answer19 '(5 4 3)) 3)
 (= (Answer19 ["b" "c" "d"]) "d")
@@ -46,3 +48,9 @@
 (= (Answer22 [[1 2] [3 4] [5 6]]) 3)
 (= (Answer22 '(13)) 1)
 (= (Answer22 '(:a :b :c)) 3)
+
+;Problem 35: Local Bindings
+
+
+
+;Problem 36: Let it Be
