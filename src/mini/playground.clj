@@ -7,7 +7,6 @@
 (= (Answer16 "Rhea") "Hello, Rhea!")
 
 ;Problem 19: Last Element
-;Rewritten as a loop recur, because of tail recursion optimization.
 (defn Answer19[x]
   (loop [lst x]
     (if (empty? (rest lst))
@@ -18,7 +17,6 @@
 (= (Answer19 ["b" "c" "d"]) "d")
 
 ;Problem 20: Penultimate Element
-;Rewritten as a loop recur, because of tail recursion optimization.
 (defn Answer20[x]
   (loop [lst x]
     (if (empty? (rest (rest lst)))
@@ -29,7 +27,6 @@
 (= (Answer20 [[1 2] [3 4]]) [1 2])
 
 ;Problem 21: Nth Element
-;Rewritten as a loop recur, because of tail recursion optimization.
 (defn Answer21 [lst n]
   (loop [x lst
          n n]
