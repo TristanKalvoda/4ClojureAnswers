@@ -27,11 +27,15 @@
 (= (Answer20 (list 1 2 3 4 5)) 4)
 (= (Answer20 ["a" "b" "c"]) "b")
 (= (Answer20 [[1 2] [3 4]]) [1 2])
+
 ;Problem 21: Nth Element
-(defn Answer21 [x n]
-  (if (= n 0)
-    (first x)
-    (recur (rest x) (- n 1))))
+;Rewritten as a loop recur, because of tail recursion optimization.
+(defn Answer21 [lst n]
+  (loop [x lst
+         n n]
+    (if (= n 0)
+      (first x)
+      (recur (rest x) (- n 1)))))
 (= (Answer21 '(4 5 6 7) 2) 6)
 (= (Answer21 [:a :b :c] 0) :a)
 (= (Answer21 [1 2 3 4] 1) 2)
