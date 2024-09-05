@@ -1,0 +1,2 @@
+# 4Clojure Problems
+This project contains solutions to various problems from the [4Clojure](https://4clojure.oxal.org/) website. Each problem is implemented as a function in Clojure, and the solutions are organized in the src/mini/playground.clj file.
