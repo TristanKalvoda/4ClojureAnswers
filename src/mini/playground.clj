@@ -50,9 +50,3 @@
 (= (Answer22 [[1 2] [3 4] [5 6]]) 3)
 (= (Answer22 '(13)) 1)
 (= (Answer22 '(:a :b :c)) 3)
-
-;Problem 35: Local Bindings
-
-
-
-;Problem 36: Let it Be
