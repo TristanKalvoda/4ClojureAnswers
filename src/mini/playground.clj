@@ -50,3 +50,28 @@
 (= (Answer22 [[1 2] [3 4] [5 6]]) 3)
 (= (Answer22 '(13)) 1)
 (= (Answer22 '(:a :b :c)) 3)
+
+;Problem 26: Fibonacci Sequence
+(defn Answer26 [x]
+  (loop [n x
+         a 0
+         b 1]
+    (if (= n 0)
+      b
+    (recur (- n 1) b (+ a b)))))
+(= (Answer26 3) '(1 1 2))
+(= (Answer26 6) '(1 1 2 3 5 8))
+(= (Answer26 8) '(1 1 2 3 5 8 13 21))
+
+;Problem 26: Fibonacci Sequence
+(defn Answer26 [x]
+  (loop [n x
+         a 0
+         b 1
+         result []]
+    (if (= n 0)
+      result
+    (recur (- n 1) b (+ a b) (conj result b)))))
+(= (Answer26 3) '(1 1 2))
+(= (Answer26 6) '(1 1 2 3 5 8))
+(= (Answer26 8) '(1 1 2 3 5 8 13 21))
