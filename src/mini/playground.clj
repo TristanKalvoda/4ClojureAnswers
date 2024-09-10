@@ -48,6 +48,13 @@
 (= (Answer22 '(13)) 1)
 (= (Answer22 '(:a :b :c)) 3)
 
+;Problem 23: Reverse a Sequence
+(defn Problem23 [x]
+  (reduce conj '() x))
+(= (Problem23 [1 2 3 4 5]) [5 4 3 2 1])
+(= (Problem23 (sorted-set 5 7 2 7)) '(7 5 2))
+(= (Problem23 [[1 2] [3 4] [5 6]]) [[5 6] [3 4] [1 2]])
+
 ;Problem 24: Sum It All Up
 (defn Answer24 [x]
   (reduce + x))
