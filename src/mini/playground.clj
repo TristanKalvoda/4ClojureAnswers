@@ -55,18 +55,6 @@
 (defn Answer26 [x]
   (loop [n x
          a 0
-         b 1]
-    (if (= n 0)
-      b
-    (recur (- n 1) b (+ a b)))))
-(= (Answer26 3) '(1 1 2))
-(= (Answer26 6) '(1 1 2 3 5 8))
-(= (Answer26 8) '(1 1 2 3 5 8 13 21))
-
-;Problem 26: Fibonacci Sequence
-(defn Answer26 [x]
-  (loop [n x
-         a 0
          b 1
          result []]
     (if (= n 0)
@@ -75,3 +63,20 @@
 (= (Answer26 3) '(1 1 2))
 (= (Answer26 6) '(1 1 2 3 5 8))
 (= (Answer26 8) '(1 1 2 3 5 8 13 21))
+
+;Problem 38: Maximum Value
+;chose this problem to test out the let statement
+(defn Answer38 [& x]
+  (if (empty? x)
+    nil
+    (loop [lst (rest x)
+           max (first x)]
+      (if (empty? lst)
+        max
+        (let [current (first lst)]
+          (if (> current max)
+            (recur (rest lst) current)
+            (recur (rest lst) max)))))))
+(= (Answer38 45 67 11) 67)
+(= (Answer38 1 8 3 4) 8)
+(= (Answer38 30 20) 30)
