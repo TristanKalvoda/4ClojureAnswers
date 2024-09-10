@@ -41,11 +41,7 @@
 
 ;Problem 22: Count Elements
 (defn Answer22 [x]
-  (loop [lst x
-         count 0]
-    (if (empty? lst)
-      count
-      (recur (rest lst) (inc count)))))
+  (reduce (fn [count y] (inc count)) 0 x))
 (= (Answer22 '(1 2 3 3 1)) 5)
 (= (Answer22 "Hello World") 11)
 (= (Answer22 [[1 2] [3 4] [5 6]]) 3)
