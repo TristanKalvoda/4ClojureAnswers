@@ -48,6 +48,15 @@
 (= (Answer22 '(13)) 1)
 (= (Answer22 '(:a :b :c)) 3)
 
+;Problem 24: Sum It All Up
+(defn Answer24 [x]
+  (reduce + x))
+(= (Answer24 [1 2 3]) 6)
+(= (Answer24 (list 0 -2 5 5)) 8)
+(= (Answer24 #{4 2 1}) 7)
+(= (Answer24 '(0 0 -1)) -1)
+(= (Answer24 '(1 10 3)) 14)
+
 ;Problem 26: Fibonacci Sequence
 (defn Answer26 [x]
   (loop [n x
