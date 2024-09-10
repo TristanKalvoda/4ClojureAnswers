@@ -1,4 +1,5 @@
-(ns mini.playground)
+(ns mini.playground 
+  (:require [clojure.string :as str]))
 
 ;Problem 16: Hello World
 (defn Answer16[x] (str "Hello, " x "!"))
@@ -80,3 +81,15 @@
 (= (Answer38 45 67 11) 67)
 (= (Answer38 1 8 3 4) 8)
 (= (Answer38 30 20) 30)
+
+;Problem 70: Word Sorting
+;chose this problem to use reduce, as well as regular expressions and strings
+(require '[clojure.string :as str])
+(defn Answer70 [x]
+  (into [] (sort-by #(str/lower-case %) (re-seq #"\w+" x))))
+(= (Answer70  "Have a nice day.")
+   ["a" "day" "Have" "nice"])
+(= (Answer70  "Clojure is a fun language!")
+   ["a" "Clojure" "fun" "is" "language"])
+(= (Answer70  "Fools fall for foolish follies.")
+   ["fall" "follies" "foolish" "Fools" "for"])
