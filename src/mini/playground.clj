@@ -64,6 +64,14 @@
 (= (Answer24 '(0 0 -1)) -1)
 (= (Answer24 '(1 10 3)) 14)
 
+;Problem 25 Find the odd numbers
+(defn Problem25 [x]
+  (filter odd? x))
+(= (Problem25 #{1 2 3 4 5}) '(1 3 5))
+(= (Problem25 [4 2 1 6]) '(1))
+(= (Problem25 [2 2 4 6]) '())
+(= (Problem25 [1 1 1 3]) '(1 1 1 3))
+
 ;Problem 26: Fibonacci Sequence
 (defn Answer26 [x]
   (loop [n x
