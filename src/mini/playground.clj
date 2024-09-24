@@ -144,3 +144,14 @@
    ["a" "Clojure" "fun" "is" "language"])
 (= (Answer70  "Fools fall for foolish follies.")
    ["fall" "follies" "foolish" "Fools" "for"])
+
+;Problem 134: A nil key
+(defn Answer134 [x y]
+  (if (contains? y x)
+    (if (nil? (get y x))
+      true
+      false)
+    false))
+(true?  (Answer134 :a {:a nil :b 2}))
+(false? (Answer134 :b {:a nil :b 2}))
+(false? (Answer134 :c {:a nil :b 2}))
