@@ -85,6 +85,22 @@
 (= (Answer26 6) '(1 1 2 3 5 8))
 (= (Answer26 8) '(1 1 2 3 5 8 13 21))
 
+;Problem 30: Compress a Sequence
+(defn Answer30 [x]
+  (loop [list x
+         result []]
+    (if (empty? list)
+      result
+      (let [current (first list)]
+        (if (= current (first (rest list)))
+          (recur (rest list) result)
+          (recur (rest list) (conj result current)))))
+  ))
+(= (apply str (Answer30 "Leeeeeerrroyyy")) "Leroy")
+(= (Answer30 [1 1 2 3 3 2 2 3]) '(1 2 3 2 3))
+(= (Answer30 [[1 2] [1 2] [3 4] [1 2]]) '([1 2] [3 4] [1 2]))
+(Answer30 [1 2 3 3 4 3 5 6 7 8 9])
+
 ;Problem 38: Maximum Value
 ;chose this problem to test out the let statement
 (defn Answer38 [& x]
