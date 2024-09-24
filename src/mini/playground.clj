@@ -101,6 +101,21 @@
 (= (Answer30 [[1 2] [1 2] [3 4] [1 2]]) '([1 2] [3 4] [1 2]))
 (Answer30 [1 2 3 3 4 3 5 6 7 8 9])
 
+;Problem 32: Duplicate a Sequence
+(defn Answer32 [x]
+  (loop [lst x
+         result []]
+    (if (empty? lst)
+      result
+      (let [current (first lst)]
+        (recur (rest lst) (-> result 
+                              (conj current) 
+                              (conj current)))))))
+(= (Answer32 [1 2 3]) '(1 1 2 2 3 3))
+(= (Answer32 [:a :a :b :b]) '(:a :a :a :a :b :b :b :b))
+(= (Answer32 [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4]))
+(= (Answer32 [44 33]) [44 44 33 33])
+
 ;Problem 38: Maximum Value
 ;chose this problem to test out the let statement
 (defn Answer38 [& x]
