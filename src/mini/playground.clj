@@ -94,8 +94,15 @@
       (let [current (first list)]
         (if (= current (first (rest list)))
           (recur (rest list) result)
-          (recur (rest list) (conj result current)))))
-  ))
+          (recur (rest list) (conj result current)))))))
+;Problem 30: Compress a Sequence (with reduce)
+(defn Answer30 [x]
+  (reduce (fn [vec elem]
+            (if (= elem (last vec))
+              vec
+              (conj vec elem)))
+          []
+          x))
 (= (apply str (Answer30 "Leeeeeerrroyyy")) "Leroy")
 (= (Answer30 [1 1 2 3 3 2 2 3]) '(1 2 3 2 3))
 (= (Answer30 [[1 2] [1 2] [3 4] [1 2]]) '([1 2] [3 4] [1 2]))
@@ -111,6 +118,10 @@
         (recur (rest lst) (-> result 
                               (conj current) 
                               (conj current)))))))
+;Problem 32: Duplicate a Sequence (with reduce)
+(defn Answer32 [x]
+  (reduce (fn [vec elem]
+            (conj vec elem elem)) [] x))
 (= (Answer32 [1 2 3]) '(1 1 2 2 3 3))
 (= (Answer32 [:a :a :b :b]) '(:a :a :a :a :b :b :b :b))
 (= (Answer32 [[1 2] [3 4]]) '([1 2] [1 2] [3 4] [3 4]))
@@ -155,3 +166,10 @@
 (true?  (Answer134 :a {:a nil :b 2}))
 (false? (Answer134 :b {:a nil :b 2}))
 (false? (Answer134 :c {:a nil :b 2}))
+
+;Problem 156: Map Defaults
+(defn Answer156 [x y]
+  (reduce (fn [result key] (assoc result key x)) {} y))
+(= (Answer156 0 [:a :b :c]) {:a 0 :b 0 :c 0})
+(= (Answer156 "x" [1 2 3]) {1 "x" 2 "x" 3 "x"})
+(= (Answer156 [:a :b] [:foo :bar]) {:foo [:a :b] :bar [:a :b]})
