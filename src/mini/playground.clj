@@ -158,10 +158,8 @@
 
 ;Problem 134: A nil key
 (defn Answer134 [x y]
-  (if (contains? y x)
-    (if (nil? (get y x))
-      true
-      false)
+  (if (contains? y x) 
+    (nil? (get y x)) 
     false))
 (true?  (Answer134 :a {:a nil :b 2}))
 (false? (Answer134 :b {:a nil :b 2}))
@@ -170,6 +168,11 @@
 ;Problem 156: Map Defaults
 (defn Answer156 [x y]
   (reduce (fn [result key] (assoc result key x)) {} y))
+;;Problem 156: Map Defaults w/ Zipmap()
+(defn Answer156 
+  "Creates a map from value x and keys y"
+  [x y] 
+  (zipmap y (repeat x)))
 (= (Answer156 0 [:a :b :c]) {:a 0 :b 0 :c 0})
 (= (Answer156 "x" [1 2 3]) {1 "x" 2 "x" 3 "x"})
 (= (Answer156 [:a :b] [:foo :bar]) {:foo [:a :b] :bar [:a :b]})
